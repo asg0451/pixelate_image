@@ -1,6 +1,6 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 import System.Process
-import Control.Monad
+import Control.Monad (void)
 
 import Vision.Image
 import Vision.Image.Storage.DevIL (Autodetect (..), load, save)
