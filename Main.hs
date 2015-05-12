@@ -8,11 +8,15 @@ import Vision.Primitive
 
 main :: IO ()
 main = do
-  createProcess $ shell "import -window root /tmp/.i3lock_pre.png"
-  createProcess $ shell "if [ -e /tmp/.i3lock_post ] ; then rm /tmp/.i3lock_post.png; fi"
   let n = 7
       meth = TruncateInteger -- Bilinear
   let [input, output] = ["/tmp/.i3lock_pre.png", "/tmp/.i3lock_post.png"]
+
+  h1 <- spawnCommand "import -window root /tmp/.i3lock_pre.png"
+  h2 <- spawnCommand "if [ -e /tmp/.i3lock_post.png ] ; then rm /tmp/.i3lock_post.png; fi"
+
+  waitForProcess h2
+  waitForProcess h1
 
   io <- load Autodetect input
   case io of
