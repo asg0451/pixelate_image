@@ -20,18 +20,14 @@ main = do
 
   io <- load Autodetect input
   case io of
-   Left err -> do
-     putStrLn "Unable to load the image:"
-     print err
+   Left err -> print $ "Unable to load the image: " ++ show err
    Right (rgb :: RGB) -> do
      let s@(Z :. sh :. sw) = shape rgb
          resized = resize meth (ix2 (sh `div` n) (sw `div` n)) rgb :: RGB
          reresized = resize meth s resized :: RGB
-     mErr <- save Autodetect output reresized
-     case mErr of
+     save_err <- save Autodetect output reresized
+     case save_err of
       Nothing  -> void $ do
         putStrLn "Success."
         createProcess $ shell "i3lock -i /tmp/.i3lock_post.png"
-      Just err -> do
-        putStrLn "Unable to save the image:"
-        print err
+      Just err -> print $ "Unable to save the image: " ++ show err

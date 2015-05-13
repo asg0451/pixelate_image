@@ -18,7 +18,7 @@ executable pix
   main-is:             Main.hs
   -- other-modules:
   -- other-extensions:
-  ghc-options: -O2 -fwarn-unused-imports -threaded
+  ghc-options:       -O2 -fwarn-unused-imports -threaded
   build-depends:       base >=4.8 && <4.9
                      , friday
                      , friday-devil

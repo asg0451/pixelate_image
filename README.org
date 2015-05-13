@@ -1,4 +1,4 @@
-* Requrements
+* Requirements
 ** Haskell
    listed in pix.cabal
 ** Other
