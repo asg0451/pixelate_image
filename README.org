@@ -3,3 +3,4 @@
    listed in pix.cabal
 ** Other
    - ~devIL~ image processing library
+   - i3lock
