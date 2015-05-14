@@ -27,7 +27,5 @@ main = do
          reresized = resize meth s resized :: RGB
      save_err <- save Autodetect output reresized
      case save_err of
-      Nothing  -> void $ do
-        putStrLn "Success."
-        createProcess $ shell "i3lock -i /tmp/.i3lock_post.png"
+      Nothing  -> void $ putStrLn "Success." >> spawnCommand "i3lock -i /tmp/.i3lock_post.png"
       Just err -> print $ "Unable to save the image: " ++ show err
