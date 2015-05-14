@@ -4,3 +4,4 @@
 ** Other
    - ~devIL~ image processing library
    - i3lock
+   - scrot (faster than previous method)

@@ -12,7 +12,7 @@ main = do
       meth = TruncateInteger -- Bilinear
   let [input, output] = ["/tmp/.i3lock_pre.png", "/tmp/.i3lock_post.png"]
 
-  h1 <- spawnCommand "import -window root /tmp/.i3lock_pre.png"
+  h1 <- spawnCommand "scrot /tmp/.i3lock_pre.png"
   h2 <- spawnCommand "if [ -e /tmp/.i3lock_post.png ] ; then rm /tmp/.i3lock_post.png; fi"
 
   waitForProcess h2
