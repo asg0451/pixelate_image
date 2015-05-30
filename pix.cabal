@@ -13,4 +13,5 @@ executable pix
                      , friday >= 0.2.1.1
                      , friday-devil >= 0.1.1.1
                      , process >= 1.2.0
+                     , random
   default-language:    Haskell2010

@@ -6,11 +6,14 @@ import Vision.Image
 import Vision.Image.Storage.DevIL (Autodetect (..), load, save)
 import Vision.Primitive
 
+import System.Random
+
 main :: IO ()
 main = do
-  let n = 7
+  n <- getStdRandom (randomR (6,30))
+  let -- n = 7
       meth = TruncateInteger -- Bilinear
-  let [input, output] = ["/tmp/.i3lock_pre.png", "/tmp/.i3lock_post.png"]
+      [input, output] = ["/tmp/.i3lock_pre.png", "/tmp/.i3lock_post.png"]
 
   h1 <- spawnCommand "scrot /tmp/.i3lock_pre.png"
   h2 <- spawnCommand "if [ -e /tmp/.i3lock_post.png ] ; then rm /tmp/.i3lock_post.png; fi"
